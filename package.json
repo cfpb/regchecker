@@ -1,0 +1,21 @@
+{
+  "name": "regchecker",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "monaco-editor": "0.46.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "4.6.0",
+    "design-system-react": "github:cfpb/design-system-react",
+    "diff": "^5.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
