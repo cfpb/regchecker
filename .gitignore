@@ -1,6 +1,6 @@
 TODO
-build
-!build/index.html
+built
+!built/index.html
 *.swp
 *.swo
 # Based on https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore
