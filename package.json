@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@monaco-editor/react": "4.6.0",
-    "design-system-react": "github:cfpb/design-system-react",
+    "design-system-react": "git@github.com:cfpb/design-system-react.git",
     "diff": "^5.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
