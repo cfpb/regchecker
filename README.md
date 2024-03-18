@@ -5,13 +5,11 @@ To install dependencies:
 
 ```bash
 bun install
-cd node_modules/design-system-react
-bun install && bun prepack
 ```
 
 To run:
 
 ```bash
-bun build ./index.tsx --outdir ./build --watch
+bun run build
 bunx serve build
 ```
