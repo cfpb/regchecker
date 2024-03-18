@@ -75,6 +75,7 @@ export function Component(){
               original={iregs}
               modified={ecfr}
               height="90vh"
+              theme="no-back"
               options={{
                 domReadOnly: true,
                 readOnly: true,

@@ -17,5 +17,11 @@
     "diff": "^5.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
+  },
+  "scripts": {
+    "build": "bun run copy && bun build ./index.tsx --outdir ./built",
+    "copy": "bun ./copy.ts",
+    "watch": "bun build ./index.tsx --outdir ./built --watch"
+
   }
 }
