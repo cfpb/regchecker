@@ -10,7 +10,7 @@ const ecfrPrefix = 'https://www.ecfr.gov/current/title-12/chapter-X/part-'
 
 loader.config({
   paths: {
-    vs: '/vs'
+    vs: './vs'
   }
 });
 
