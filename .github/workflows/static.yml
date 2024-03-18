@@ -34,7 +34,7 @@ jobs:
       - name: Install Bun
         uses: oven-sh/setup-bun@v1
       - name: Install project
-        run: bun install --verbose
+        run: bun install
       - name: Run build
         run: bun run build
       - name: Setup Pages
