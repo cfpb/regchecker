@@ -21,7 +21,7 @@
   "scripts": {
     "build": "bun run copy && bun build ./index.tsx --outdir ./built",
     "copy": "bun ./copy.ts",
-    "postinstall": "cd node_modules/design-system-react && bun install && bun prepack && cd -",
+    "postinstall": "ls && cd node_modules/design-system-react && bun install && bun prepack && cd -",
     "watch": "bun build ./index.tsx --outdir ./built --watch"
   }
 }
