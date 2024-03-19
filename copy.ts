@@ -1,3 +1,4 @@
+import { Glob } from "bun";
 import { mkdir, readdir } from "node:fs/promises";
 
 async function copy(dir: string){
@@ -18,3 +19,7 @@ async function copy(dir: string){
 
 copy('public')
 copy('node_modules/monaco-editor/min')
+
+const glob = new Glob("built/style*.css")
+const css = glob.scanSync('.').next().value
+Bun.spawn(["sed", "-i", "''", "s/\\/static\\/font/.\\/static\\/font/g", css])
