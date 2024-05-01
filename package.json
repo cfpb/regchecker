@@ -20,7 +20,7 @@
   "scripts": {
     "build": "bun build ./index.tsx --outdir ./built && bun run copy",
     "copy": "bun ./copy.ts",
-    "postinstall": "cd node_modules/design-system-react && bun install && bun prepack && cd -",
+    "postinstall": "sleep 20 && cd node_modules/design-system-react && bun install && bun prepack && cd -",
     "watch": "bun build ./index.tsx --outdir ./built --watch"
   }
 }
