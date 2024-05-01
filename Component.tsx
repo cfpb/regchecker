@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { DiffEditor, loader } from "@monaco-editor/react";
-import { Heading, Link, Select } from './dsr/design-system-react.es.js'
+import { Heading, Link, Select } from 'design-system-react'
 import { useHash } from './useHash.tsx'
 import { reglist } from './constants.ts'
 import { getEcfr, getIregs } from './api.ts'
-import './dsr/style.css';
+import 'design-system-react/style.css';
 
 const iregsPrefix = 'https://www.consumerfinance.gov/rules-policy/regulations/'
 const ecfrPrefix = 'https://www.ecfr.gov/current/title-12/chapter-X/part-'

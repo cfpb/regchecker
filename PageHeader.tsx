@@ -1,5 +1,5 @@
-import { Heading, Link, Banner } from './dsr/design-system-react.es.js'
-import CFPBLogo from './dsr/cfpb-logo.png';
+import { Heading, Link, Banner } from 'design-system-react'
+import CFPBLogo from './node_modules/design-system-react/src/assets/images/cfpb-logo.png';
 
 export function CfpbLogo(): JSX.Element {
   return (

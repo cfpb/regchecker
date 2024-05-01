@@ -13,12 +13,14 @@
   },
   "dependencies": {
     "@monaco-editor/react": "4.6.0",
+    "design-system-react": "https://github.com/cfpb/design-system-react.git",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "scripts": {
     "build": "bun build ./index.tsx --outdir ./built && bun run copy",
     "copy": "bun ./copy.ts",
+    "postinstall": "cd node_modules/design-system-react && bun install && bun prepack && cd -",
     "watch": "bun build ./index.tsx --outdir ./built --watch"
   }
 }
