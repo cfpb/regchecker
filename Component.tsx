@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
 import { DiffEditor, loader } from "@monaco-editor/react";
 import { Heading, Link, Select } from 'design-system-react'
+import { useHash } from './useHash.tsx'
 import { reglist } from './constants.ts'
 import { getEcfr, getIregs } from './api.ts'
 import 'design-system-react/style.css';
 
 const iregsPrefix = 'https://www.consumerfinance.gov/rules-policy/regulations/'
 const ecfrPrefix = 'https://www.ecfr.gov/current/title-12/chapter-X/part-'
+
+interface RegValue {
+  label: string,
+  value: string
+}
 
 loader.config({
   paths: {
@@ -34,6 +40,7 @@ export function Component(){
   const [ecfr, setEcfr] = useState('')
   const [iregs, setIregs] = useState('')
 
+  const [hash, setHash] = useHash();
 
   async function selectReg({value}: {value: string}){
     const [ecfrValue, iregsValue] = await Promise.all([
@@ -45,8 +52,9 @@ export function Component(){
   }
 
   useEffect(() => {
-      selectReg(reglist[0]);
-    }, []
+    const reg = reglist.find(v => v.value === hash) || reglist[0]
+      selectReg(reg);
+    }, [hash]
   );
 
   return (
@@ -55,8 +63,9 @@ export function Component(){
       <Select
         id="singleSelect"
         label="Select a regulation to check"
-        onChange={selectReg}
+        onChange={(e: RegValue) => {setHash(e.value)}}
         options={reglist}
+        value={hash}
       />
       </div>
       {ecfr && iregs
