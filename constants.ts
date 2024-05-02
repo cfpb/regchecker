@@ -1,4 +1,8 @@
-const reglist = [
+export const regset = new Set(
+  ['1002', '1003', '1004', '1005', '1006', '1006', '1007', '1008', '1010', '1011', '1012', '1013', '1016', '1022', '1024', '1026', '1030', '1041']
+)
+
+export const reglist = [
   {
    label: '12 CFR Part 1002 - Equal Credit Opportunity Act (Regulation B)',
    value: '1002'
@@ -68,5 +72,3 @@ const reglist = [
    value: '1041'
   },
 ]
-
-export { reglist }

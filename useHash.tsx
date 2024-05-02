@@ -21,5 +21,5 @@ export const useHash = () => {
     [hash]
   )
 
-  return [hash, updateHash];
+  return [hash, updateHash] as [string, (newHash: string) => void]
 };

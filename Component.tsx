@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { DiffEditor, loader } from "@monaco-editor/react";
 import { Heading, Link, Select } from 'design-system-react'
 import { useHash } from './useHash.tsx'
-import { reglist } from './constants.ts'
+import { reglist, regset } from './constants.ts'
 import { getEcfr, getIregs } from './api.ts'
 import 'design-system-react/style.css';
 
 const iregsPrefix = 'https://www.consumerfinance.gov/rules-policy/regulations/'
 const ecfrPrefix = 'https://www.ecfr.gov/current/title-12/chapter-X/part-'
+const defaultReg = '1002'
 
 interface RegValue {
   label: string,
@@ -42,18 +43,18 @@ export function Component(){
 
   const [hash, setHash] = useHash();
 
-  async function selectReg({value}: {value: string}){
+  const selectReg = useCallback(async function(reg: string){
     const [ecfrValue, iregsValue] = await Promise.all([
-      getEcfr(value), getIregs(value)
+      getEcfr(reg), getIregs(reg)
     ])
-    setReg(value)
+    setReg(reg)
     setEcfr(ecfrValue)
     setIregs(iregsValue)
-  }
+  }, [])
 
   useEffect(() => {
-    const reg = reglist.find(v => v.value === hash) || reglist[0]
-      selectReg(reg);
+    const reg = regset.has(hash) ? hash : defaultReg
+    selectReg(reg);
     }, [hash]
   );
 
@@ -65,7 +66,7 @@ export function Component(){
         label="Select a regulation to check"
         onChange={(e: RegValue) => {setHash(e.value)}}
         options={reglist}
-        value={hash || reglist[0].value }
+        value={hash || defaultReg }
       />
       </div>
       {ecfr && iregs
