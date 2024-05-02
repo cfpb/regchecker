@@ -10,11 +10,6 @@ const iregsPrefix = 'https://www.consumerfinance.gov/rules-policy/regulations/'
 const ecfrPrefix = 'https://www.ecfr.gov/current/title-12/chapter-X/part-'
 const defaultReg = '1002'
 
-interface RegValue {
-  label: string,
-  value: string
-}
-
 loader.config({
   paths: {
     vs: './vs'
@@ -64,7 +59,7 @@ export function Component(){
       <Select
         id="singleSelect"
         label="Select a regulation to check"
-        onChange={(e: RegValue) => {setHash(e.value)}}
+        onChange={setHash}
         options={reglist}
         value={hash || defaultReg }
       />

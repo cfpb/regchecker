@@ -1,5 +1,10 @@
 import { useCallback, useEffect, useState} from 'react';
 
+interface RegValue {
+  label: string,
+  value: string
+}
+
 export const useHash = () => {
   const [hash, setHash] = useState(() => location.hash.slice(1));
 
@@ -15,11 +20,11 @@ export const useHash = () => {
   }, []);
 
   const updateHash = useCallback(
-    (newHash: string) => {
-      if (newHash !== hash) location.hash = newHash;
+    (e: RegValue) => {
+      if (e.value !== hash) location.hash = e.value;
     },
     [hash]
   )
 
-  return [hash, updateHash] as [string, (newHash: string) => void]
+  return [hash, updateHash] as [string, (e: RegValue) => void]
 };
