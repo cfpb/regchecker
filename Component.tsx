@@ -65,7 +65,7 @@ export function Component(){
         label="Select a regulation to check"
         onChange={(e: RegValue) => {setHash(e.value)}}
         options={reglist}
-        value={hash}
+        value={hash || reglist[0].value }
       />
       </div>
       {ecfr && iregs
