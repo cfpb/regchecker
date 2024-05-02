@@ -23,3 +23,4 @@ copy('node_modules/monaco-editor/min')
 const glob = new Glob("built/style*.css")
 const css = glob.scanSync('.').next().value
 Bun.spawn(["sed", "-i.bak", "s/\\/static\\/font/.\\/static\\/font/g", css])
+Bun.spawn(["mv", css, "built/style.css"])
